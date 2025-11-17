@@ -28,8 +28,44 @@ Would it be a good idea to Copy+Paste the content of the issue from the lab? Jus
   
 The Lab screenshot shows GPT-5 mini and my default on GH was GPT-4.1  
 
-**For example** This Markdown block is the Issue description GHCP Chat generated for me. Compare to the Markdownfrom the Lab (next block, below).
+**For example** See the next 2 Markdown blocks, taht is the Issue description GHCP Chat generated for me on two different tests. Compare to the Markdownfrom the Lab (third block, below).
+```markdown
+## Overview
+Provision an Azure infrastructure for the ZavaStorefront web application targeting a development environment. The setup should:
 
+- Be deployed together in one resource group in the westus3 region.
+- Use Bicep and AZD (Azure Developer CLI) for definition and deployment.
+
+## Requirements
+- **App Service (Linux):**
+    - Should host the ZavaStorefront web application.
+    - Use Docker for deployment — do not require Docker to be installed locally.
+    - App Service should use Azure RBAC for image pulls instead of passwords.
+- **Container Registry:**
+    - For storing images deployed to the App Service via Docker.
+- **Application Monitoring:**
+    - Integrate Application Insights for monitoring.
+- **AI Capabilities:**
+    - Include Azure AI Foundry resources for leveraging GPT-4 and Phi capabilities.
+    - Must use westus3 region (as required for GPT-4 and Phi access).
+- **Deployment Strategy:**
+    - Everything must be grouped in a single resource group per environment (e.g., `zavastorefront-dev-westus3`).
+    - All resources are provisioned using Bicep templates and AZD workflows.
+
+## Acceptance Criteria
+- All infrastructure resources (App Service, Container Registry, Application Insights, AI Foundry) provisioned via Bicep with AZD.
+- No need to install Docker locally for deployment — use Azure Dev resources.
+- App Service pulls container images using RBAC, not passwords.
+- Solution deploys fully to westus3; all necessary configuration in infrastructure-as-code.
+- Monitoring enabled through Application Insights.
+- AI Foundry deployed and configured for GPT-4 and Phi access in westus3.
+- Documentation for any post-provision steps or environment configurations.
+
+---
+**Labels:** enhancement, documentation
+**Repository:** `Zava-Labs-omarv74/TechWorkshop-L300-GitHub-Copilot-and-platform`
+```
+  
 ```markdown
 ## Objective
 Provision Azure infrastructure for the ZavaStorefront web application in a development environment using the following resources and best practices:
@@ -104,3 +140,20 @@ Provision all Azure resources as infrastructure for the ZavaStorefront web appli
 ---
 If you need code/starter templates for Bicep or CI workflow, request below.
 ```
+
+## On 02_02
+After selecting the **src** context, my instance of Copilot Chat shows **Automatic** for the model, while the lab screenshot shows **GPT-4.1** (not GPT-5 mini like earlier).
+
+**Under 02: Execute the Infrastructure scripts**
+Lab instructions say to run **azd init** - My Laptop's GHCP (Claude Sonnet 4) prompted to run **azd init --no-prompt**, as part of the previous GHCP Chat instruction. It then failed to find an azd environment and prompted to create one: **azd ini --environment zavastorefront-dev**.  
+  
+Lab instructions also say to run **azd provision --preview**, but my GHCP prompted to run it for me. The result was an **ERROR: AADSTS700082: The refresh token has expired due to inactivity".  
+  
+The above command *created* all resources but the ACR listed in the Lab. Then prompted if I wanted it to proceed with **azd up*. I clicked **keep**. Empty RG **LEARN-TechExcel-GHCPandPlatform-dev** was created.
+
+***azd up* failed for the AppInsights resource (BAD REQUEST), I told GHCP to add the SecurityControl tag to all resources in main.bicep, tried again and it woked.
+  
+
+
+
+
