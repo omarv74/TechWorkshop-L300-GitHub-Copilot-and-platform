@@ -21,3 +21,8 @@ choco install docker-desktop -y
 ## On a frersh Azure VM, Docker needs WSL Update  
   
 wsl --update  
+
+# Lab 02
+## On 02_01
+Would it be a good idea to Copy+Paste the content of the issue from the lab? Just in case the student does not change the model or for any reason the result is significantly different? And results in different outcomes.  
+
