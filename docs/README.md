@@ -15,3 +15,6 @@ code --install-extension ms-azuretools.vscode-azure-github-copilot
 **Already installed**  code --install-extension ms-azuretools.vscode-azure-mcp-server  
 code --install-extension ms-azuretools.vscode-bicep  
 code --install-extension ms-azuretools.vscode-docker  
+
+choco install docker-desktop -y  
+
