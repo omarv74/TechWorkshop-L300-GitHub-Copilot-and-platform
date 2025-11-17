@@ -18,3 +18,6 @@ code --install-extension ms-azuretools.vscode-docker
 
 choco install docker-desktop -y  
 
+## On a frersh Azure VM, Docker needs WSL Update  
+  
+wsl --update  
