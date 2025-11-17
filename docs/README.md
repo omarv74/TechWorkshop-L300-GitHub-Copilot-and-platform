@@ -1,11 +1,11 @@
 # Setup steps on Win11 Machine
 
-https://chocolatey.org/install
+[https://chocolatey.org/install](https://chocolatey.org/install#:~:text=Install%20Chocolatey%20for%20Individual%20Use)
 
 choco install powershell-core -y  
 choco install dotnet-6.0-sdk -y  
 choco install dotnet-8.0-sdk -y  
-choco install azure-cli azd git -y 
+choco install azure-cli azd git -y  
 choco install vscode -y  
   
 code --install-extension GitHub.copilot  
